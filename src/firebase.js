@@ -3,7 +3,7 @@ import 'firebase/compat/auth';
 
 
 const app = firebase.initializeApp({
-  apiKey:process.env.REACT_APP_FIREBASE_API_KEY,
+  apiKey:'AIzaSyBX3fupkvpNRqnlLOi7IQMasjj5qC9cFMU',
   authDomain:process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   projectId:process.env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket:process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
