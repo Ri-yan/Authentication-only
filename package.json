@@ -21,10 +21,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "runHeadless": "npx cypress run --headless",
-    "ci:start-server":"angular-http-server --path ./dist/blog -p 3000 ",
+    "ci:start-server":"angular-http-server --path ./dist/blog -p 8080 ",
     "cy:run":"cypress run --headless --browser chrome",
-    "ci:cy-run":"start-server-and-test ci:start-server http://localhost:3000 cy:run",
-    "cypress:run": "cypress run"
+    "ci:cy-run":"start-server-and-test ci:start-server http://localhost:8080 cy:run",
+    "cypress:run": "cypress run",
+    "cy:open": "cypress open",
+    "test:e2e:run": "start-server-and-test start http://localhost:8080 cy:run",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:8080 cy:open"
   },
   "eslintConfig": {
     "extends": "react-app"
