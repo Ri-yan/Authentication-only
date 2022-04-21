@@ -2,11 +2,12 @@
 
 
 describe('Test',()=>{    
-    beforeEach(()=>{
+     beforeEach(()=>{
         cy.visit('/login')
     })
-it('Test 1',()=>{
+
+    it('Test for checking heading',()=>{
     cy.get('.card-body').contains('Log In').should('have.text','Log In') 
-})
+    })
 
 })
