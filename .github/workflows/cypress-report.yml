@@ -6,7 +6,7 @@ name: Generate Cypress Report
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   cypress-test:
