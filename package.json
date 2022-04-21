@@ -27,10 +27,7 @@
     "cypress:run": "cypress run",
     "cy:open": "cypress open",
     "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
-    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open",
-    "test:chrome": "cypress run --browser chrome",
-    "combine:report": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
-    "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
+    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,10 +46,6 @@
   },
   "devDependencies": {
     "angular-http-server": "^1.10.0",
-    "start-server-and-test": "^1.14.0",
-    "cypress": "4.9.0",
-    "mochawesome": "6.1.1",
-    "mochawesome-merge": "4.1.0",
-    "mochawesome-report-generator": "5.1.0"
+    "start-server-and-test": "^1.14.0"
   }
 }

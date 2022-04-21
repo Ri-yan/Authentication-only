@@ -10,4 +10,9 @@ jobs:
         uses: cypress-io/github-action@v2.9.7
         with:
           start: npm start
+      - name: Deploy report page to GitHub Page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
       
