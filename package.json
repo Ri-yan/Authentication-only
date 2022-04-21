@@ -23,8 +23,8 @@
     "runHeadless": "npx cypress run --headless",
     "ci:start-server":"angular-http-server --path ./dist/blog -p 3000 ",
     "cy:run":"cypress run --headless --browser chrome",
-    "ci:cy-run":"start-server-and-test ci:start-server http://localhost:3000 cy:run"
-    
+    "ci:cy-run":"start-server-and-test ci:start-server http://localhost:3000 cy:run",
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
