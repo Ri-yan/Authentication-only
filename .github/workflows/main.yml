@@ -10,3 +10,8 @@ jobs:
         uses: cypress-io/github-action@v2.9.7
         with:
           start: npm start
+      - name: Deploy 
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: gh-pages 
+          folder: build 
