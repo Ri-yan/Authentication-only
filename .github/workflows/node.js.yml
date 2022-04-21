@@ -1,16 +1,70 @@
-name: G
-on: [push]
-jobs:
- cypress-run:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install node
-        uses: actions/setup-node@v2
-        with:
-           node-version: '16.10.0'
-      - name: Install dependencies
-        run: npm install
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+version: '3'
+services:
+    web:
+        build:
+            context: .
+            dockerfile: ./docker/web/Dockerfile
+        container_name: web
+        restart: unless-stopped
+        ports:
+            - "8080:8080"
+        volumes:
+            - .:/home/node/app
+            - node_modules:/home/node/app/node_modules
+        depends_on:
+            - server
+        environment:
+            - NODE_ENV=testing
+        networks:
+            - app-network
+
+    db:
+        build:
+            context: .
+            dockerfile: ./docker/db/Dockerfile
+        container_name: db
+        restart: unless-stopped
+        volumes:     
+            - dbdata:/data/db
+        ports:
+            - "27017:27017"
+        networks:
+            - app-network
+
+    server:
+        build:
+            context: .
+            dockerfile: ./docker/server/Dockerfile
+        container_name: server
+        restart: unless-stopped
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/home/node/app
+            - node_modules:/home/node/app/node_modules
+        networks:
+            - app-network
+        depends_on:
+            - db
+        command: ./wait-for.sh db:27017 -- nodemon -L server.js
+
+    cypress:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: cypress
+        restart: unless-stopped
+        volumes:
+            - .:/e2e
+        depends_on:
+            - web
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    dbdata:
+    node_modules:
