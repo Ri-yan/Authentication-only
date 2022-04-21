@@ -20,7 +20,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "runHeadless":"npx cypress run --headless"
+    "runHeadless": "npx cypress run --headless",
+    "ci:start-server":"angular-http-server --path ./dist/blog -p 3000 ",
+    "cy:run":"cypress run --headless --browser chrome",
+    "ci:cy-run":"start-server-and-test ci:start-server http://localhost:3000 cy:run"
+    
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "angular-http-server": "^1.10.0",
+    "start-server-and-test": "^1.14.0"
   }
 }
