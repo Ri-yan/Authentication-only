@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/src/firebase.js
 .pnp.js
 
 # testing
@@ -12,7 +13,6 @@
 /build
 
 # misc
-./src/firebase.js
 .DS_Store
 .env.local
 .env.development.local
