@@ -9,11 +9,6 @@ jobs:
   cypress-test:
     name: Run on chrome 83
     runs-on: ubuntu-18.04
-    container:
-    image: ghcr.io/owner/image
-    credentials:
-      username: ${{ github.actor }}
-      password: ${{ secrets.ghcr_token }}
     container: cypress/browser:node12.18.0-chrome83-ff77
     steps:
       - uses: actions/checkout@v2
