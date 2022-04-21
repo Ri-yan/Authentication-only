@@ -9,4 +9,8 @@ describe('Test',()=>{
     cy.visit('https://authentication-only.netlify.app')
     cy.get('.card-body').contains('Log In').should('have.text','Log In') 
     })
+    it('Test for LOCAL PORT',()=>{
+        cy.visit('/login')
+        cy.get('.card-body').contains('Log In').should('have.text','Log In') 
+        })
 })
