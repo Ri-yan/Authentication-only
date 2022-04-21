@@ -1,0 +1,43 @@
+# rrrrr
+
+name: Genrate Cypress report
+on:
+  push: 
+    branches:
+      - 'main'
+jobs:
+  cypress-test:
+    name: Run on chrome 83
+    runs-on: ubuntu-18.04
+    container: cypress/browser:node12.18.0-chrome83-ff77
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install cypress and verify
+        run: 
+          npm ci
+            $(npm bin)/verify cypress
+            
+      - name: Run Cypress tests
+        run: npm run test:chrome
+        continue-on-error: false
+        
+      - name: Copy test execution videos and screenshots
+        run: 
+          mkdir public
+          cp -r cypress/videos public/videos
+          cp -r cypress/screenshots public/screenshots
+        
+      - name: Merge tests reports
+        run: npm run combine:report
+        
+      - name: Generate HTML reports
+        run: npm run generate:report
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+     
+          
