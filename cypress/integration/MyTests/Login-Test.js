@@ -3,7 +3,7 @@
 import {data} from '../../fixtures/logindata.json'
 
 
-describe('Test',()=>{    
+describe('Login-Test-Suite',()=>{    
     //  beforeEach(()=>{
     //     cy.visit('/login')
     // })
