@@ -7,6 +7,10 @@
             {
                 "email":"abc123@gmail.com",
                 "password":"abc123"
+            },
+            {
+                "email":"riyan111@gmail.com",
+                "password":"riyan111"
             }
     ]
 }
