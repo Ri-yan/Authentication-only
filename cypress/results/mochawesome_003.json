@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-04-29T07:01:08.452Z",
+    "end": "2022-04-29T07:02:51.149Z",
+    "duration": 102697,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8b8de181-f7bc-4726-b4d6-75e5bbc58cd8",
+      "title": "",
+      "fullFile": "cypress/integration/MyTests/Registration-Test.js",
+      "file": "cypress/integration/MyTests/Registration-Test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1ef66d81-bc62-440f-b052-d1b115c4ab0b",
+          "title": "Registration-Test-Suite (Using Excel FIle)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Data Driven: Register User",
+              "fullTitle": "Registration-Test-Suite (Using Excel FIle) Data Driven: Register User",
+              "timedOut": null,
+              "duration": 101147,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "\"videos/MyTests/Registration-Test.js.mp4\"",
+              "code": "cy.fixture('xlsxData').then(data => {\n  for (let i = 0; i < rowsLength; i++) {\n    cy.visit('/signup');\n    cy.url().should('include', '/signup').then(() => {\n      cy.get('[data-testid=\"Reg_email\"]').type(data.rows[i].email);\n      cy.get('[data-testid=\"Reg_password\"]').type(data.rows[i].password);\n      cy.get('[data-testid=\"Reg_passwordConfirm\"]').type(data.rows[i].confirmpassword);\n      cy.get('.btn-primary').click();\n      cy.get('[data-testid=\"Reg_error\"]').should('not.exist');\n      cy.url().should('include', '/'); // cy.get('alert').should('have.text', data.rows[i].message);\n    });\n  }\n});",
+              "err": {},
+              "uuid": "9d90ac7f-3124-490b-b19d-3dc1648ff173",
+              "parentUUID": "1ef66d81-bc62-440f-b052-d1b115c4ab0b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9d90ac7f-3124-490b-b19d-3dc1648ff173"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 101147,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
