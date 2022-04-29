@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-04-29T05:36:48.461Z",
+    "end": "2022-04-29T05:37:39.902Z",
+    "duration": 51441,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "34aaaf5b-0d31-4365-b67a-967a57724102",
+      "title": "",
+      "fullFile": "cypress/integration/MyTests/Login-Test.js",
+      "file": "cypress/integration/MyTests/Login-Test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "63677a3f-a046-4679-8e95-df21cecd97b4",
+          "title": "Login-Test-Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test for checking heading",
+              "fullTitle": "Login-Test-Suite Test for checking heading",
+              "timedOut": null,
+              "duration": 5880,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://authentication-only.netlify.app');\ncy.get('.card-body').contains('Log In').should('have.text', 'Log In');",
+              "err": {},
+              "uuid": "03f9dc66-0144-4602-9230-3818da827ebf",
+              "parentUUID": "63677a3f-a046-4679-8e95-df21cecd97b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test for LOCAL PORT",
+              "fullTitle": "Login-Test-Suite Test for LOCAL PORT",
+              "timedOut": null,
+              "duration": 4694,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('.card-body').contains('Log In').should('have.text', 'Log In');",
+              "err": {},
+              "uuid": "4581050c-c614-443d-848c-2c4479f4cab0",
+              "parentUUID": "63677a3f-a046-4679-8e95-df21cecd97b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test for Login ",
+              "fullTitle": "Login-Test-Suite Test for Login ",
+              "timedOut": null,
+              "duration": 6012,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('.card-body').contains('Log In').should('have.text', 'Log In');\ncy.get('[data-testid=\"email\"]').type('james24@gmail.com');\ncy.get('[data-testid=\"password\"]').type('james24');\ncy.get('[data-testid=\"submit\"]').click();\ncy.url().should('not.include', '/login');\ncy.get('.mt-2 > .btn').click();\ncy.get('[data-testid=\"error\"]').should('not.exist');",
+              "err": {},
+              "uuid": "d9ca4309-d31c-4b70-90c1-bf5d26415604",
+              "parentUUID": "63677a3f-a046-4679-8e95-df21cecd97b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "create Login 1",
+              "fullTitle": "Login-Test-Suite create Login 1",
+              "timedOut": null,
+              "duration": 5047,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('.card-body').contains('Log In').should('have.text', 'Log In');\ncy.get('[data-testid=\"email\"]').type(item.email);\ncy.get('[data-testid=\"password\"]').type(item.password);\ncy.get('[data-testid=\"submit\"]').click();\ncy.url().should('not.include', '/login');",
+              "err": {},
+              "uuid": "c4a0bce6-2100-40a4-9903-13a3ab7a183d",
+              "parentUUID": "63677a3f-a046-4679-8e95-df21cecd97b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "create Login 2",
+              "fullTitle": "Login-Test-Suite create Login 2",
+              "timedOut": null,
+              "duration": 7173,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('.card-body').contains('Log In').should('have.text', 'Log In');\ncy.get('[data-testid=\"email\"]').type(item.email);\ncy.get('[data-testid=\"password\"]').type(item.password);\ncy.get('[data-testid=\"submit\"]').click();\ncy.url().should('not.include', '/login');",
+              "err": {},
+              "uuid": "0a671c0c-aa24-466f-a2a5-64818266be1d",
+              "parentUUID": "63677a3f-a046-4679-8e95-df21cecd97b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "create Login 3",
+              "fullTitle": "Login-Test-Suite create Login 3",
+              "timedOut": null,
+              "duration": 6225,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('.card-body').contains('Log In').should('have.text', 'Log In');\ncy.get('[data-testid=\"email\"]').type(item.email);\ncy.get('[data-testid=\"password\"]').type(item.password);\ncy.get('[data-testid=\"submit\"]').click();\ncy.url().should('not.include', '/login');",
+              "err": {},
+              "uuid": "1b0e15da-8e20-4115-aaf6-57830bc8dd3d",
+              "parentUUID": "63677a3f-a046-4679-8e95-df21cecd97b4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test for Failed Login ",
+              "fullTitle": "Login-Test-Suite Test for Failed Login ",
+              "timedOut": null,
+              "duration": 6642,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('.card-body').contains('Log In').should('have.text', 'Log In');\ncy.get('[data-testid=\"email\"]').type('notexist@gmail.com');\ncy.get('[data-testid=\"password\"]').type('notexists');\ncy.get('[data-testid=\"submit\"]').click();\ncy.url().should('include', '/login');\ncy.get('[data-testid=\"error\"]').should('exist');",
+              "err": {},
+              "uuid": "cacfd305-6841-49d7-8d3c-e707b1cc30a2",
+              "parentUUID": "63677a3f-a046-4679-8e95-df21cecd97b4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "03f9dc66-0144-4602-9230-3818da827ebf",
+            "4581050c-c614-443d-848c-2c4479f4cab0",
+            "d9ca4309-d31c-4b70-90c1-bf5d26415604",
+            "c4a0bce6-2100-40a4-9903-13a3ab7a183d",
+            "0a671c0c-aa24-466f-a2a5-64818266be1d",
+            "1b0e15da-8e20-4115-aaf6-57830bc8dd3d",
+            "cacfd305-6841-49d7-8d3c-e707b1cc30a2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 41673,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

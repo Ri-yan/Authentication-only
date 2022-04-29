@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-04-29T05:38:12.384Z",
+    "end": "2022-04-29T05:39:17.440Z",
+    "duration": 65056,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "df4175dd-779c-4428-9f2b-c89b97d04712",
+      "title": "",
+      "fullFile": "cypress/integration/MyTests/Registration-Test.js",
+      "file": "cypress/integration/MyTests/Registration-Test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "603b87e1-4638-47f6-b9da-f3645e3fc096",
+          "title": "Registration-Test-Suite (Using Excel FIle)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Data Driven: Register User",
+              "fullTitle": "Registration-Test-Suite (Using Excel FIle) Data Driven: Register User",
+              "timedOut": null,
+              "duration": 64363,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('xlsxData').then(data => {\n  for (let i = 0; i < rowsLength; i++) {\n    cy.visit('/signup');\n    cy.url().should('include', '/signup').then(() => {\n      cy.get('[data-testid=\"Reg_email\"]').type(data.rows[i].email);\n      cy.get('[data-testid=\"Reg_password\"]').type(data.rows[i].password);\n      cy.get('[data-testid=\"Reg_passwordConfirm\"]').type(data.rows[i].confirmpassword);\n      cy.get('.btn-primary').click();\n      cy.get('[data-testid=\"Reg_error\"]').should('not.exist');\n      cy.url().should('include', '/'); // cy.get('alert').should('have.text', data.rows[i].message);\n    });\n  }\n});",
+              "err": {},
+              "uuid": "baf66bac-60c0-4879-9bfd-2d9453097811",
+              "parentUUID": "603b87e1-4638-47f6-b9da-f3645e3fc096",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "baf66bac-60c0-4879-9bfd-2d9453097811"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 64363,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
