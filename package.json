@@ -1,13 +1,14 @@
 {
   "name": "firebase-react-auth",
   "version": "0.1.0",
-  "private": true,
+  "description": "Simple Authentication and Cypress project",
+  "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.2",
-    "cypress": "^9.5.4",
+    "cypress": "^9.6.1",
     "firebase": "^9.6.11",
     "jsonpath": "^1.1.1",
     "react": "^16.13.1",
@@ -20,7 +21,6 @@
   "scripts": {
     "start": "set PORT=3000 && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test  cypress run",
     "eject": "react-scripts eject",
     "runHeadless": "npx cypress run --headless",
     "ci:start-server": "angular-http-server --path ./dist/blog -p 3000 ",
@@ -32,6 +32,7 @@
     "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open",
     "cypress:smoke-test1": "cypress run --spec cypress/integration/Login-Test.js",
     "cypress:smoke-test2": "cypress run --spec cypress/integration/Registration-Test.js",
+    "test": "cypress run",
     "test:chrome": "cypress run --browser chrome",
     "report:merge": "mochawesome-merge cypress/results/json/*.json > index.json",
     "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
@@ -53,11 +54,17 @@
   },
   "devDependencies": {
     "angular-http-server": "^1.10.0",
-    "mocha": "^9.2.2",
-    "mochawesome": "^7.1.3",
-    "mochawesome-merge": "^4.2.1",
-    "mochawesome-report-generator": "^6.2.0",
     "node-xlsx": "^0.21.0",
-    "start-server-and-test": "^1.14.0"
-  }
+    "start-server-and-test": "^1.14.0",
+    "cypress-multi-reporters": "^1.4.0",
+    "mocha": "^8.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.1.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/Ri-yan/Authentication-only.git"
+  },
+  "homepage": "https://github.com/Ri-yan/Authentication-only#readme"
 }
