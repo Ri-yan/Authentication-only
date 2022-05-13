@@ -1,14 +1,43 @@
-name: Cypress Test Suite
-on: [push]
-jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
+name: Generate Cypress Report
 
-      - name: Cypress.io
-        uses: cypress-io/github-action@v2.9.7
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+
+ cypress-e2e-chrome81:
+    name: Run on Chrome 81
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.16.2-chrome81-ff75
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install a project with a clean slate
+        run: |
+          npm ci
+          $(npm bin)/cypress verify
+
+      - name: Run Cypress tests
+        run: npm run test:chrome
+        continue-on-error: true
+
+      - name: Copy test execution videos and screenshots
+        run: |
+          mkdir -p public
+          cp -r cypress/videos public/videos
+          # cp -r cypress/screenshots public/screenshots
+
+      - name: Merge test results into one
+        run: npm run report:merge
+
+      - name: Generate HTML report
+        run: npm run report:generate
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          start: npm start
-      
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+    
+     
