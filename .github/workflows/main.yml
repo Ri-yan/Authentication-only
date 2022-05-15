@@ -11,12 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.16.2-chrome81-ff75
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install a project with a clean slate
-        run: |
-          npm ci
-          $(npm bin)/cypress verify
+      - uses:  actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          run: |
+            npm ci
+            $(npm bin)/cypress verify
+             
+#       - name: Install a project with a clean slate
+#         run: |
+#           npm ci
+#           $(npm bin)/cypress verify
 
       - name: Run Cypress tests
         run: npm run test:chrome
