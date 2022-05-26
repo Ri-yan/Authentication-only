@@ -1,28 +1,34 @@
-import React, { useContext, useState, useEffect } from "react"
-import { auth } from "../firebase"
-import {GoogleAuthProvider,signInWithPopup} from "firebase/auth";
-const AuthContext = React.createContext()
+import { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "../firebase";
 
+// import {
+//   createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+//   onAuthStateChanged,
+//   signOut,
+//   GoogleAuthProvider,
+//   signInWithPopup,
+// } from "firebase/auth";
+
+const AuthContext = createContext();
 export function useAuth() {
   return useContext(AuthContext)
 }
+
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
 
-  function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password)
-  }
-
   function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password)
+    return auth.signInWithEmailAndPassword( email, password);
   }
-
+  function signup(email, password) {
+    return auth.createUserWithEmailAndPassword( email, password);
+  }
   function logout() {
-    return auth.signOut()
+    return auth.signOut();
   }
-
   function resetPassword(email) {
     return auth.sendPasswordResetEmail(email)
   }
@@ -34,10 +40,12 @@ export function AuthProvider({ children }) {
   function updatePassword(password) {
     return currentUser.updatePassword(password)
   }
-function googleSignIn() {
-    const googleAuthProvider = new GoogleAuthProvider();
-    return signInWithPopup( auth,googleAuthProvider);
-  }
+
+  // function googleSignIn() {
+  //   const googleAuthProvider = new GoogleAuthProvider();
+  //   return signInWithPopup(auth, googleAuthProvider);
+  // }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user)
@@ -54,13 +62,12 @@ function googleSignIn() {
     logout,
     resetPassword,
     updateEmail,
-    updatePassword,
-    googleSignIn
+    updatePassword
   }
-
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
-  )
+  );
 }
+
